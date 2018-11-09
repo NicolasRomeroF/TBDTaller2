@@ -1,6 +1,6 @@
 <template>
   <div class="center">
-    <h2>{{title}}</h2>
+    <h2 style="font-size: x-large; padding: 10px;">{{title}}</h2>
     <form>
       <div class="form-group">
         <label for="">Nombre</label>
@@ -12,16 +12,23 @@
       </div>
       <button type="submit" v-on:click.prevent="post" class="btn btn-primary">Guardar</button>
     </form>
+      <Modal v-if="showMessage" @close='showMessage=false' :texto="statusMessage" titulo="Nuevo post"></Modal>
   </div>
 </template>
 <script>
+import Modal from "./modal.vue";
 export default {
+  components: {
+    Modal
+  },
   data(){
     return{
       title:'Agregar Actor',
       firstName: '',
       lastName: '',
-      lastUpdate: '1139988873000'
+      lastUpdate: '1139988873000',
+      statusMessage: '',
+      showMessage: false,
     }
   },
 
@@ -33,7 +40,14 @@ export default {
         lastUpdate: this.lastUpdate
       }).then(function(data){
         console.log(data);
+        this.dialog("Agregado con éxito");
       })
+    },
+    dialog: function(message){
+    this.statusMessage = message;
+    if(this.showMessage === false){
+      this.showMessage = true;
+    }
     }
   }
 
