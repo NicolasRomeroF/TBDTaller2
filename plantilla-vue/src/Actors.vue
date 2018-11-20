@@ -22,7 +22,7 @@ export default {
     console.log('Index.vue');
 
     // GET /someUrl
-    this.$http.get('http://localhost:8081/actors/')
+    this.$http.get('http://localhost:8082/actors/')
     .then(response=>{
        // get body data
       this.users = response.body;

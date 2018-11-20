@@ -34,7 +34,7 @@ export default {
 
   methods:{
     post:function(){
-      this.$http.post('http://localhost:8081/actors', {
+      this.$http.post('http://localhost:8082/actors', {
         firstName: this.firstName,
         lastName: this.lastName,
         lastUpdate: this.lastUpdate
