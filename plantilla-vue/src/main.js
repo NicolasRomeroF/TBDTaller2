@@ -5,6 +5,7 @@ import Actors from './Actors.vue';
 import VueResource from 'vue-resource';
 import ActorNuevo from './Actornuevo.vue';
 import Games from './games.vue';
+import Filtraciones from './filtraciones.vue';
 require("./style.scss");
 
 import App from './App.vue';
@@ -14,7 +15,8 @@ const routes = [
   { path: '/index', alias: '/', component: Index},
   { path: '/actors', component: Actors},
   { path: '/actors/new',component: ActorNuevo},
-  { path: '/games', component: Games}
+  { path: '/games', component: Games},
+  { path: '/filter_game', component: Filtraciones}
 ]
 
 // Create the router instance and pass the `routes` option
